@@ -289,9 +289,9 @@
       </div>
 
       <div class="deep-link-section" id="deepLinkSection" style="display: none;">
-        <h3>🔗 App Link</h3>
+        <h3>🔗 App Link (Expo Development)</h3>
         <p style="margin-bottom: 12px; color: #1976D2; font-size: 14px;">
-          This is the link that would open in the app:
+          This is the Expo development link that will open in your app:
         </p>
         <div class="deep-link-url" id="deepLinkUrl"></div>
         <button class="copy-button" onclick="copyDeepLink()">Copy Link</button>
@@ -369,8 +369,21 @@
         const deepLinkSection = document.getElementById('deepLinkSection');
         const deepLinkUrl = document.getElementById('deepLinkUrl');
         
+        // Decode the deep link
+        const decodedDeepLink = decodeURIComponent(deepLink);
+        
+        // Split on '//' and get the second part
+        const parts = decodedDeepLink.split('//');
+        if (parts.length >= 2) {
+          // Concat with expo development URL
+          const expoUrl = 'expo://localhost:8081/--/' + parts[1];
+          deepLinkUrl.textContent = expoUrl;
+        } else {
+          // Fallback to original if split fails
+          deepLinkUrl.textContent = decodedDeepLink;
+        }
+        
         deepLinkSection.style.display = 'block';
-        deepLinkUrl.textContent = decodeURIComponent(deepLink);
       }
     };
 
