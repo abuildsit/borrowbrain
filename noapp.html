@@ -2,20 +2,306 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Oops</title>
+  <title>BorrowBrain - Invitation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: #212121;
+      background: linear-gradient(135deg, #4DB6AC 0%, #26A69A 100%);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .header {
       text-align: center;
-      padding: 50px;
+      color: white;
+      margin-bottom: 40px;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      background: white;
+      border-radius: 20px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      color: #4DB6AC;
+      font-weight: bold;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+
+    .header h1 {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .header p {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+
+    .content-card {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+
+    .app-not-installed {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .app-not-installed h2 {
+      font-size: 24px;
+      color: #212121;
+      margin-bottom: 12px;
+    }
+
+    .app-not-installed p {
+      font-size: 16px;
+      color: #757575;
+      margin-bottom: 20px;
+    }
+
+    .alpha-notice {
+      background: #FFF3E0;
+      border: 2px solid #FFA726;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .alpha-notice h3 {
+      color: #F57C00;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .alpha-notice p {
+      color: #BF360C;
+      font-size: 14px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .feature-card {
+      background: #F5F5F5;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: #4DB6AC;
+      border-radius: 12px;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: white;
+    }
+
+    .feature-card h4 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #212121;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      color: #757575;
+    }
+
+    .app-highlights {
+      margin: 30px 0;
+    }
+
+    .app-highlights h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #212121;
+    }
+
+    .highlight-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .highlight-list li {
+      padding: 8px 0;
+      padding-left: 24px;
+      position: relative;
+      font-size: 14px;
+      color: #757575;
+    }
+
+    .highlight-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #66BB6A;
+      font-weight: bold;
+    }
+
+    .contact-section {
+      text-align: center;
+      background: #F5F5F5;
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 20px;
+    }
+
+    .contact-button {
+      display: inline-block;
+      background: #4DB6AC;
+      color: white;
+      text-decoration: none;
+      padding: 16px 32px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 16px rgba(77, 182, 172, 0.3);
+    }
+
+    .contact-button:hover {
+      background: #26A69A;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(77, 182, 172, 0.4);
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      color: white;
+      opacity: 0.8;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 15px;
+      }
+      
+      .content-card {
+        padding: 20px;
+      }
+      
+      .header h1 {
+        font-size: 28px;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Well... Something ain't right...</h1>
-  <p>It looks like you don't have the app installed.</p>
-  <p>As BorrowBrain is in Alpha, Please contact <a href="mailto:abuildsit@gmail.com">abuildsit@gmail.com</a> for access to the app</p>
-  <p>(Or to tell me what broke 😄)</p>
+  <div class="container">
+    <div class="header">
+      <div class="logo">📦</div>
+      <h1>BorrowBrain</h1>
+      <p>Smart borrowing and lending made simple</p>
+    </div>
+
+    <div class="content-card">
+      <div class="app-not-installed">
+        <h2>App Not Installed</h2>
+        <p>It looks like you don't have the BorrowBrain mobile app installed yet.</p>
+      </div>
+
+      <div class="alpha-notice">
+        <h3>🚀 Currently in Alpha</h3>
+        <p>BorrowBrain is in early access. Contact us for invitation to the exclusive alpha program.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h4>Smart Tracking</h4>
+          <p>Keep track of all your borrowed and lent items with photos, due dates, and automatic reminders</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">👥</div>
+          <h4>Contact Management</h4>
+          <p>Organize your lending relationships with friends, family, and colleagues in one place</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🔔</div>
+          <h4>Smart Notifications</h4>
+          <p>Get timely reminders for due dates and activity updates to never lose track</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h4>Activity Feed</h4>
+          <p>Stay updated with real-time activity feed showing all borrowing interactions</p>
+        </div>
+      </div>
+
+      <div class="app-highlights">
+        <h3>What makes BorrowBrain special:</h3>
+        <ul class="highlight-list">
+          <li>Seamless tab-based navigation with intuitive design</li>
+          <li>Photo documentation for every borrowed item</li>
+          <li>Comprehensive contact system with invitation management</li>
+          <li>Smart categorization and filtering options</li>
+          <li>Built-in comment system for communication</li>
+          <li>Detailed activity tracking and history</li>
+          <li>Customizable notification preferences</li>
+          <li>Clean, mobile-first user experience</li>
+        </ul>
+      </div>
+
+      <div class="contact-section">
+        <h3>Ready to join the alpha?</h3>
+        <p style="margin-bottom: 20px;">Contact us to get early access to BorrowBrain and start organizing your borrowing life.</p>
+        <a href="mailto:abuildsit@gmail.com?subject=BorrowBrain Alpha Access Request" class="contact-button">
+          Request Alpha Access
+        </a>
+        <p style="margin-top: 16px; font-size: 12px; color: #757575;">
+          (Or to report any issues 😄)
+        </p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>BorrowBrain - Making borrowing and lending effortless</p>
+    </div>
+  </div>
 </body>
 </html>
