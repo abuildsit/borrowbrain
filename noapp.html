@@ -107,6 +107,16 @@
       color: #424242;
       word-break: break-all;
       margin-bottom: 12px;
+      display: block;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .deep-link-url:hover {
+      background: #F3F8FF;
+      border-color: #2196F3;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(33, 150, 243, 0.2);
     }
 
     .copy-button {
@@ -293,7 +303,7 @@
         <p style="margin-bottom: 12px; color: #1976D2; font-size: 14px;">
           This is the Expo development link that will open in your app:
         </p>
-        <div class="deep-link-url" id="deepLinkUrl"></div>
+        <a href="#" class="deep-link-url" id="deepLinkUrl" onclick="openDeepLink(); return false;"></a>
         <button class="copy-button" onclick="copyDeepLink()">Copy Link</button>
       </div>
 
@@ -378,9 +388,11 @@
           // Concat with expo development URL
           const expoUrl = 'expo://localhost:8081/--/' + parts[1];
           deepLinkUrl.textContent = expoUrl;
+          deepLinkUrl.href = expoUrl;
         } else {
           // Fallback to original if split fails
           deepLinkUrl.textContent = decodedDeepLink;
+          deepLinkUrl.href = decodedDeepLink;
         }
         
         deepLinkSection.style.display = 'block';
