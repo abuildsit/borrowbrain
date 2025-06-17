@@ -82,6 +82,52 @@
       margin-bottom: 20px;
     }
 
+    .deep-link-section {
+      background: #E3F2FD;
+      border: 2px solid #2196F3;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .deep-link-section h3 {
+      color: #1976D2;
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .deep-link-url {
+      background: white;
+      border: 1px solid #BBDEFB;
+      border-radius: 8px;
+      padding: 12px;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      color: #424242;
+      word-break: break-all;
+      margin-bottom: 12px;
+    }
+
+    .copy-button {
+      background: #2196F3;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .copy-button:hover {
+      background: #1976D2;
+    }
+
+    .copy-button:active {
+      background: #0D47A1;
+    }
+
     .alpha-notice {
       background: #FFF3E0;
       border: 2px solid #FFA726;
@@ -242,6 +288,15 @@
         <p>It looks like you don't have the BorrowBrain mobile app installed yet.</p>
       </div>
 
+      <div class="deep-link-section" id="deepLinkSection" style="display: none;">
+        <h3>🔗 App Link</h3>
+        <p style="margin-bottom: 12px; color: #1976D2; font-size: 14px;">
+          This is the link that would open in the app:
+        </p>
+        <div class="deep-link-url" id="deepLinkUrl"></div>
+        <button class="copy-button" onclick="copyDeepLink()">Copy Link</button>
+      </div>
+
       <div class="alpha-notice">
         <h3>🚀 Currently in Alpha</h3>
         <p>BorrowBrain is in early access. Contact us for invitation to the exclusive alpha program.</p>
@@ -303,5 +358,57 @@
       <p>BorrowBrain - Making borrowing and lending effortless</p>
     </div>
   </div>
+
+  <script>
+    // Check if there's a deep link parameter in the URL
+    window.onload = function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const deepLink = urlParams.get('deeplink');
+      
+      if (deepLink) {
+        const deepLinkSection = document.getElementById('deepLinkSection');
+        const deepLinkUrl = document.getElementById('deepLinkUrl');
+        
+        deepLinkSection.style.display = 'block';
+        deepLinkUrl.textContent = decodeURIComponent(deepLink);
+      }
+    };
+
+    function copyDeepLink() {
+      const deepLinkUrl = document.getElementById('deepLinkUrl');
+      const textToCopy = deepLinkUrl.textContent;
+      
+      navigator.clipboard.writeText(textToCopy).then(function() {
+        const button = document.querySelector('.copy-button');
+        const originalText = button.textContent;
+        button.textContent = 'Copied!';
+        button.style.background = '#4CAF50';
+        
+        setTimeout(function() {
+          button.textContent = originalText;
+          button.style.background = '#2196F3';
+        }, 2000);
+      }).catch(function(err) {
+        console.error('Failed to copy: ', err);
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = textToCopy;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        
+        const button = document.querySelector('.copy-button');
+        const originalText = button.textContent;
+        button.textContent = 'Copied!';
+        button.style.background = '#4CAF50';
+        
+        setTimeout(function() {
+          button.textContent = originalText;
+          button.style.background = '#2196F3';
+        }, 2000);
+      });
+    }
+  </script>
 </body>
 </html>
