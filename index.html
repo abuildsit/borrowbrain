@@ -14,7 +14,7 @@
         return;
       }
       // Construct the deep link URL
-      const deepLink = `borrowbrain://invite/contact/${inviteId}`;
+      const deepLink = `borrowbrain://invite?token=${inviteId}`;
       // Try to open the app
       window.location.href = deepLink;
       // Fallback to store after delay (e.g. 2 seconds)
