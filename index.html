@@ -20,7 +20,7 @@
       // Fallback to store after delay (e.g. 2 seconds)
       setTimeout(function() {
         // Pass the deep link URL to the fallback page
-        const fallbackUrl = `https://abuildsit.github.io/borrowbrain_invitation/noapp.html?deeplink=${encodeURIComponent(deepLink)}`;
+        const fallbackUrl = `https://abuildsit.github.io/borrowbrain/noapp.html?deeplink=${encodeURIComponent(deepLink)}`;
         window.location.href = fallbackUrl;
       }, 2000);
     }
