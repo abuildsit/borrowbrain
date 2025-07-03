@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BorrowBrain - Account Deletion</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: #374151;
+      background: #f8fafc;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+    }
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+      margin-top: 20px;
+    }
+
+    .logo {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(20, 184, 166, 0.3);
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-tagline {
+      font-size: 12px;
+      color: #14b8a6 !important;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .header h1 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #1f2937;
+    }
+
+    .header p {
+      font-size: 16px;
+      color: #6b7280;
+    }
+
+    .main-card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e5e7eb;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 20px;
+    }
+
+    .deletion-info {
+      font-size: 16px;
+      color: #374151;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .email-section {
+      background: #f0fdfa;
+      border: 1px solid #a7f3d0;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .email-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 8px;
+    }
+
+    .email-link {
+      display: inline-block;
+      background: #14b8a6;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+
+    .email-link:hover {
+      background: #0d9488;
+    }
+
+    .footer-card {
+      background: #f0fdfa;
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      border: 1px solid #a7f3d0;
+    }
+
+    .footer-logo {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .footer-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .footer-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 8px;
+    }
+
+    .footer-description {
+      font-size: 13px;
+      color: #6b7280;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand {
+      font-size: 11px;
+      color: #14b8a6;
+      font-weight: 500;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 0 16px;
+      }
+      
+      .main-card {
+        padding: 24px;
+      }
+      
+      .footer-card {
+        padding: 24px;
+      }
+      
+      .header {
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <img src="../assets/favicon.png" alt="BorrowBrain Logo">
+      </div>
+      <p class="brand-tagline">BorrowBrain <br>Keep track of everything you share!</p>
+      <h1>Account Deletion</h1>
+      <p>Request to delete your BorrowBrain account</p>
+    </div>
+
+    <div class="main-card">
+      <div class="card-title">Delete Your Account</div>
+      
+      <div class="deletion-info">
+        To request deletion of your BorrowBrain account, please send us an email. We'll process your request and permanently delete your account and associated data.
+      </div>
+
+      <div class="email-section">
+        <div class="email-title">Send your deletion request to:</div>
+        <a href="mailto:abuildsit@gmail.com?subject=Account%20Deletion%20Request" class="email-link">
+          abuildsit@gmail.com
+        </a>
+      </div>
+
+      <div class="deletion-info">
+        Please include your account email address in your request. We'll confirm the deletion within 30 days.
+      </div>
+    </div>
+
+    <div class="footer-card">
+      <div class="footer-logo">
+        <img src="../assets/favicon.png" alt="BorrowBrain Logo">
+      </div>
+      <div class="footer-title">BorrowBrain</div>
+      <div class="footer-description">
+        Keep track of everything you share with friends and family.
+      </div>
+      <div class="footer-brand">© 2024 BorrowBrain</div>
+    </div>
+  </div>
+</body>
+</html>
